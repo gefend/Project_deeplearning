@@ -3,7 +3,7 @@ Data download [here](https://www.kaggle.com/c/quickdraw-doodle-recognition/data?
 download train_simplified, test_simplified
 
 Related work 1.https://github.com/telecombcn-dl/2018-dlai-team10#readme
-2. [here] https://github.com/anubhavshrimal/Quick-Draw 
-3. [here] https://github.com/lRomul/argus-quick-draw
+2.  https://github.com/anubhavshrimal/Quick-Draw 
+3.  https://github.com/lRomul/argus-quick-draw
 
 
