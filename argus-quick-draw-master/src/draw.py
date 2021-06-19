@@ -8,6 +8,16 @@ from src import config
 COLOR_MAP = plt.get_cmap('brg')
 
 
+def shake_pen(drawing, shake):
+    shaked_drawing = []
+    for x_lst, y_lst in drawing:
+        x_shaked = x_lst + shake * (2 * torch.rand(len(x_lst)) - 1)
+        y_shaked = y_lst + shake * (2 * torch.rand(len(y_lst)) - 1)
+        shaked_drawing.append([x_shaked, y_shaked])
+
+    return shaked_drawing
+
+
 def scale_drawing(drawing, size=112):
     x_max = 0
     y_max = 0

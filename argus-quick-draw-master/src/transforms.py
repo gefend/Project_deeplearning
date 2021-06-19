@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 cv2.setNumThreads(0)
 
-from src.draw import scale_drawing, draw_cv2
+from src.draw import shake_pen, scale_drawing, draw_cv2
 
 
 def img_size(image: np.ndarray):
@@ -143,15 +143,17 @@ class ImageToTensor:
 
 
 class DrawTransform:
-    def __init__(self, size=128, pad=8, line_width=3, time_color=True):
+    def __init__(self, size=128, pad=8, shake=0, line_width=3, time_color=True):
         self.size = size
         self.line_width = line_width
         self.time_color = time_color
         self.pad = pad
+        self.shake = shake
         self.scale_size = self.size - 2*self.pad
 
     def __call__(self, drawing):
-        scaled_drawing = scale_drawing(drawing, self.scale_size)
+        shaked_drawing = shake_pen(drawing, self.shake)
+        scaled_drawing = scale_drawing(shaked_drawing, self.scale_size)
         image = draw_cv2(scaled_drawing, size=self.size, lw=self.line_width,
                          shift=self.pad, time_color=self.time_color)
         return image
