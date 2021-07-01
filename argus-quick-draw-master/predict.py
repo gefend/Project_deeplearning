@@ -10,7 +10,7 @@ from src.transforms import ImageTransform, DrawTransform
 from src.argus_models import DrawMetaModel, IterSizeMetaModel
 from src.utils import make_dir
 from src import config
-
+from src.datasets import DrawDataset, get_train_val_samples
 
 DRAW_SIZE = 256
 DRAW_PAD = 3
@@ -18,11 +18,14 @@ DRAW_LINE_WIDTH = 3
 TIME_COLOR = True
 SCALE_SIZE = 128
 PRED_BATCH_SIZE = 512
-EXPERIMENT = 'iter_size_se_resnext50_001'
-MODEL = 'model-074-0.889637'
+EXPERIMENT = 'iter_size_se_resnext50_testsplit__hflip50_shake3_001'
+MODEL = 'model-025-0.967125'
 
 MODEL_PATH = f'/workdir/data/experiments/{EXPERIMENT}/{MODEL}.pth'
 PREDICT_DIR = f'/workdir/data/predictions/{EXPERIMENT}/{MODEL}'
+VAL_KEY_ID_PATH = '/workdir/data/val_key_ids_002.json'
+TRAIN_KEY_ID_PATH = '/workdir/data/train_key_ids_002.json'
+TEST_KEY_ID_PATH = '/workdir/data/test_key_ids_002.json'
 
 
 class Predictor:
@@ -63,7 +66,6 @@ if __name__ == "__main__":
     make_dir(PREDICT_DIR)
     draw_transform = DrawTransform(DRAW_SIZE, DRAW_PAD, DRAW_LINE_WIDTH, TIME_COLOR)
     image_trns = ImageTransform(False, SCALE_SIZE)
-
     test_df = pd.read_csv(config.TEST_SIMPLIFIED_PATH)
     sample_subm = pd.read_csv(config.SAMPLE_SUBMISSION)
     predictor = Predictor(MODEL_PATH, draw_transform, image_trns)
@@ -83,9 +85,9 @@ if __name__ == "__main__":
             probs_lst.append(probs)
 
             preds_idx = probs.argsort(axis=1)
-            preds_idx = np.fliplr(preds_idx)[:, :3]
+            preds_idx = np.fliplr(preds_idx)[:, 0]
             for pred_idx, key_id in zip(preds_idx, key_ids):
-                words = [config.IDX_TO_CLASS[i].replace(' ', '_') for i in pred_idx]
+                words = [config.IDX_TO_CLASS[pred_idx].replace(' ', '_')]
                 pred_words.append(" ".join(words))
                 pred_key_ids.append(key_id)
 
@@ -96,9 +98,9 @@ if __name__ == "__main__":
     probs_lst.append(probs)
 
     preds_idx = probs.argsort(axis=1)
-    preds_idx = np.fliplr(preds_idx)[:, :3]
+    preds_idx = np.fliplr(preds_idx)[:, 0]
     for pred_idx, key_id in zip(preds_idx, key_ids):
-        words = [config.IDX_TO_CLASS[i].replace(' ', '_') for i in pred_idx]
+        words = [config.IDX_TO_CLASS[pred_idx].replace(' ', '_')]
         pred_words.append(" ".join(words))
         pred_key_ids.append(key_id)
 
@@ -110,3 +112,4 @@ if __name__ == "__main__":
 
     submission = pd.DataFrame({'key_id': pred_key_ids, 'word': pred_words})
     submission.to_csv(join(PREDICT_DIR, 'submission.csv'), index=False)
+
