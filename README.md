@@ -40,4 +40,6 @@ download train_simplified
 |File name|Purpose|Our modifications/additions|
 |:-------:|:-----:|:-------------------------:|
 |create_test_csv.py|Build a csv file for the prediction and build a csv file with the labels for the accuracy calculations|original|
+|plot_results.py|plot the training results: val accuracy, val map@k,val loss, train loss, learning rate|origianl|
+
 refernces: https://github.com/lRomul/argus-quick-draw
