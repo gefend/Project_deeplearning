@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import torch 
 
 from src import config
 
@@ -11,10 +12,11 @@ COLOR_MAP = plt.get_cmap('brg')
 def shake_pen(drawing, shake):
     shaked_drawing = []
     for x_lst, y_lst in drawing:
-        x_shaked = x_lst + shake * (2 * torch.rand(len(x_lst)) - 1)
-        y_shaked = y_lst + shake * (2 * torch.rand(len(y_lst)) - 1)
+        x_shaked = torch.FloatTensor(x_lst) + shake * (2 * torch.rand(len(x_lst)) - 1)
+        y_shaked = torch.FloatTensor(y_lst) + shake * (2 * torch.rand(len(y_lst)) - 1)
+        x_shaked.tolist()
+        y_shaked.tolist()
         shaked_drawing.append([x_shaked, y_shaked])
-
     return shaked_drawing
 
 
@@ -30,8 +32,8 @@ def scale_drawing(drawing, size=112):
 
     scaled_drawing = []
     for x_lst, y_lst in drawing:
-        x_scaled_lst = [round(((x + x_shift) / config.BASE_SIZE_SIMPLIFIED) * size) for x in x_lst]
-        y_scaled_lst = [round(((y + y_shift) / config.BASE_SIZE_SIMPLIFIED) * size) for y in y_lst]
+        x_scaled_lst = [torch.round(((x + x_shift) / config.BASE_SIZE_SIMPLIFIED) * size) for x in x_lst]
+        y_scaled_lst = [torch.round(((y + y_shift) / config.BASE_SIZE_SIMPLIFIED) * size) for y in y_lst]
         scaled_drawing.append([x_scaled_lst, y_scaled_lst])
 
     return scaled_drawing
