@@ -54,7 +54,7 @@ Remove all other classes csv files after downloading.
 |predict.py|Run the model on the test set to get predictions|modified: to work with our data splits and to prodcue only one class prediction per sample|
 |src/draw.py|Transform the raw data, strokes, to RGB images|modified: shake pan function was added|
 |src/config.py| configuration file| modified: with our paths|
-
+|src/datasets.py|load the validation,test and train sets| modified: to load our splits|
 
 
 refernces: https://github.com/lRomul/argus-quick-draw
