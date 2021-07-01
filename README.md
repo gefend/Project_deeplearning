@@ -55,6 +55,8 @@ Remove all other classes csv files after downloading.
 |src/draw.py|Transform the raw data, strokes, to RGB images|modified: shake pan function was added|
 |src/config.py| configuration file| modified: with our paths|
 |src/datasets.py|load the validation,test and train sets| modified: to load our splits|
+|src/argus_models.py|build the model| no modifications|
+
 
 
 refernces: https://github.com/lRomul/argus-quick-draw
