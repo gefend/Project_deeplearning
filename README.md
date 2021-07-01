@@ -44,5 +44,7 @@ download train_simplified
 |choice_val_key_ids.py|split the train dataset to train, validation and test|modified: added a split to a test set|
 |test_calculate_accuracy.py|Calculate the predictions accuracy on the test set|original|
 |comp_shake.py|Plot the drawings with the "shake pan" augmentaion| original|
+|train.py|model training|modified:to work with our data splits, reduced: 1.num of workers in the dataloader 2.train epoch size 3.max epochs 4.early stopping patience|
+|predict.py|Run the model on the test set to get predictions|modified: to work with our data splits and to prodcue only one class prediction per sample|
 
 refernces: https://github.com/lRomul/argus-quick-draw
