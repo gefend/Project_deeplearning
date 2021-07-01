@@ -35,8 +35,11 @@ make build
 ### Data
 Data download [here](https://www.kaggle.com/c/quickdraw-doodle-recognition/data?select=train_simplified).
 download train_simplified
+
 We used only 40 classes out of the classes in the origianl data. 
+
 The following classes were used: Ambulance, Apple, Bear, Bicycle, Cactus, Camera, Carrot, Crocodile, Diamond, Dog, Ear, Eye, Flamingo, Giraffe, Helmet, House, Key, Lightning, Lion, Mermaid, Monkey, Moon, Neckless, Octopus, Onion, Panda, Pizza, Rabbit, Rainbow, Shark, Skull, Snowflake, Spider, Sun, Sword, Table, Telephone, Underwear, Whale, Zebra.
+
 Remove all other classes csv files after downloading.
 
 ## Files in the repository
