@@ -62,5 +62,7 @@ Remove all other classes csv files after downloading.
 |src/utils.py|utility functions|no modifications|
 
 
+## Model
+The latest version of the trained model can be downloded [here](https://drive.google.com/drive/folders/1VdN92PdNsvch3lJRT3T6XefCfNDiAsYZ?usp=sharing)
 
 refernces: https://github.com/lRomul/argus-quick-draw
