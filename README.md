@@ -36,4 +36,8 @@ make build
 Data download [here](https://www.kaggle.com/c/quickdraw-doodle-recognition/data?select=train_simplified).
 download train_simplified
 
+## Files in the repository
+|File name|Purpose|Our modifications/additions|
+|:-------:|:-----:|:-------------------------:|
+|
 refernces: https://github.com/lRomul/argus-quick-draw
