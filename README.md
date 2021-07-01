@@ -43,6 +43,8 @@ The following classes were used: Ambulance, Apple, Bear, Bicycle, Cactus, Camera
 Remove all other classes csv files after downloading.
 
 ## Files in the repository
+original- refers to new functions we wrote.
+
 |File name|Purpose|Our modifications/additions|
 |:-------:|:-----:|:-------------------------:|
 |create_test_csv.py|Build a csv file for the prediction and build a csv file with the labels for the accuracy calculations|original|
@@ -60,6 +62,7 @@ Remove all other classes csv files after downloading.
 |src/nn_modules.py|build a model for country embedding| no modifications|
 |src/transforms.py|define the data transformations| modified: added the shake pan transofrm|
 |src/utils.py|utility functions|no modifications|
+
 
 ## Run
 Run docker container
