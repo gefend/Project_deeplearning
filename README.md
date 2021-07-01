@@ -61,8 +61,22 @@ Remove all other classes csv files after downloading.
 |src/transforms.py|define the data transformations| modified: added the shake pan transofrm|
 |src/utils.py|utility functions|no modifications|
 
+## Run
+Run docker container
+``` shell
+make run
+```
+Train model
+``` shell
+python train.py
+```
+make prediction on the test set
+```shell
+python predict.py
+```
 
 ## Model
 The latest version of the trained model can be downloded [here](https://drive.google.com/drive/folders/1VdN92PdNsvch3lJRT3T6XefCfNDiAsYZ?usp=sharing)
 
-refernces: https://github.com/lRomul/argus-quick-draw
+## Refernces: 
+https://github.com/lRomul/argus-quick-draw
