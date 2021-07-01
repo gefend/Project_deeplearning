@@ -143,7 +143,7 @@ class ImageToTensor:
 
 
 class DrawTransform:
-    def __init__(self, size=128, pad=8, shake=0, line_width=3, time_color=True):
+    def __init__(self, size=128, pad=8, line_width=3, time_color=True, shake=0):
         self.size = size
         self.line_width = line_width
         self.time_color = time_color
@@ -165,7 +165,7 @@ class ImageTransform:
 
         if train:
             self.transform = Compose([
-                # UseWithProb(HorizontalFlip(), 0.3),
+		UseWithProb(HorizontalFlip(), 0.5),
                 # UseWithProb(RandomCrop(random_crop_size), 0.2),
                 # UseWithProb(RandomBorderScale(max_border_scale), 0.2),
                 # UseWithProb(Rotate(rotate_angle), 0.5),
