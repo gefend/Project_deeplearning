@@ -27,6 +27,7 @@ if __name__ == '__main__':
         class_df = pd.read_csv(config.CLASS_TO_CSV_PATH[cls])
         class_key_ids = class_df.key_id
         train_id, val_test_id = train_test_split(class_key_ids, test_size=2*VAL_SPLIT)
+        val_id, test_id = train_test_split(val_test_id, test_size=0.5)
         val_key_ids += val_id.tolist()
         test_key_ids += test_id.tolist()
         train_key_ids += train_id.tolist()
