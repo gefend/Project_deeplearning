@@ -78,5 +78,5 @@ python predict.py
 ## Model
 The latest version of the trained model can be downloded [here](https://drive.google.com/drive/folders/1VdN92PdNsvch3lJRT3T6XefCfNDiAsYZ?usp=sharing)
 
-## Refernces: 
+## References: 
 https://github.com/lRomul/argus-quick-draw
