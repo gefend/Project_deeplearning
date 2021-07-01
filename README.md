@@ -56,6 +56,10 @@ Remove all other classes csv files after downloading.
 |src/config.py| configuration file| modified: with our paths|
 |src/datasets.py|load the validation,test and train sets| modified: to load our splits|
 |src/argus_models.py|build the model| no modifications|
+|src/metrics.py| define metrices| no modifications|
+|src/nn_modules.py|build a model for country embedding| no modifications|
+|src/transforms.py|define the data transformations| modified: added the shake pan transofrm|
+|src/utils.py|utility functions|no modifications|
 
 
 
