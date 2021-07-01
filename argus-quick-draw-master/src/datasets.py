@@ -9,10 +9,13 @@ from torch.utils.data import Dataset
 from src import config
 
 
-def get_train_val_samples(val_key_id_path, blacklist_path=None):
+def get_train_val_samples(val_key_id_path,train_key_id_path,test_key_id_path, blacklist_path=None):
     with open(val_key_id_path) as file:
         val_key_id_set = set(json.loads(file.read()))
-
+    with open(train_key_id_path) as file:
+        train_key_id_set = set(json.loads(file.read()))
+    with open(test_key_id_path) as file:
+        test_key_id_set = set(json.loads(file.read()))
     blacklist = set()
     if blacklist_path is not None:
         with open(blacklist_path) as file:
@@ -24,13 +27,18 @@ def get_train_val_samples(val_key_id_path, blacklist_path=None):
     val_drawing_lst = []
     val_class_lst = []
     val_country_lst = []
+    test_drawing_lst = []
+    test_class_lst = []
+    test_country_lst = []
 
     for cls in tqdm.tqdm(config.CLASSES):
         class_df = pd.read_csv(config.CLASS_TO_CSV_PATH[cls])
         class_df = class_df[~class_df.key_id.isin(blacklist)]
         val_key_ids = class_df.key_id.isin(val_key_id_set)
+        test_key_ids = class_df.key_id.isin(test_key_id_set)
+        train_key_ids = class_df.key_id.isin(train_key_id_set)
 
-        train_class_df = class_df[~val_key_ids]
+        train_class_df = class_df[train_key_ids]
         train_drawings = train_class_df.drawing.values
         train_words = train_class_df.word.values
         train_countries = train_class_df.countrycode.values
@@ -46,10 +54,18 @@ def get_train_val_samples(val_key_id_path, blacklist_path=None):
         val_class_lst += val_words.tolist()
         val_country_lst += val_countries.tolist()
 
+        test_class_df = class_df[test_key_ids]
+        test_drawings = test_class_df.drawing.values
+        test_words = test_class_df.word.values
+        test_countries = test_class_df.countrycode.values
+        test_drawing_lst += test_drawings.tolist()
+        test_class_lst += test_words.tolist()
+        test_country_lst += test_countries.tolist()
+
     train_samples = train_drawing_lst, train_class_lst, train_country_lst
     val_samples = val_drawing_lst, val_class_lst, val_country_lst
-
-    return train_samples, val_samples
+    test_samples = test_drawing_lst, test_class_lst, test_country_lst
+    return train_samples, val_samples, test_samples
 
 
 class DrawDataset(Dataset):
