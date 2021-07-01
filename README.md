@@ -7,7 +7,11 @@ We improved the accuracy by adding a special augmentation to the sketches called
 ## Setup
 ### Requirements
 * Nvidia drivers, CUDA >= 9, cuDNN >= 7
+* Docker, [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+Install docker and use it to build a docker image.
 
+
+### Data
 Data download [here](https://www.kaggle.com/c/quickdraw-doodle-recognition/data?select=train_simplified).
 download train_simplified
 
