@@ -53,6 +53,8 @@ Remove all other classes csv files after downloading.
 |train.py|model training|modified:to work with our data splits, reduced: 1.num of workers in the dataloader 2.train epoch size 3.max epochs 4.early stopping patience|
 |predict.py|Run the model on the test set to get predictions|modified: to work with our data splits and to prodcue only one class prediction per sample|
 |src/draw.py|Transform the raw data, strokes, to RGB images|modified: shake pan function was added|
+|src/config.py| configuration file| modified: with our paths|
+
 
 
 refernces: https://github.com/lRomul/argus-quick-draw
