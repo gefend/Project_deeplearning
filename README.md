@@ -8,7 +8,7 @@ We improved the accuracy by adding a special augmentation to the sketches called
 ### Requirements
 * Nvidia drivers, CUDA >= 9, cuDNN >= 7
 * Docker, [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
-Install docker and use it to build a docker image.
+Install docker and use it to build docker image.
 The docker file is supplied based on argus-quickdraw docker file.
 
 |Library|Version|
@@ -22,6 +22,15 @@ The docker file is supplied based on argus-quickdraw docker file.
 |pretrainedmodels |0.74|
 
 In addition, a requirments file is supplied. 
+
+### Preparations
+Clone the repo and build docker image
+
+```shell
+git clone https://github.com/gefend/Project_deeplearning/tree/main/argus-quick-draw-master
+cd argus-quick-draw
+make build
+```
 
 ### Data
 Data download [here](https://www.kaggle.com/c/quickdraw-doodle-recognition/data?select=train_simplified).
