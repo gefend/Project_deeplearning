@@ -39,5 +39,5 @@ download train_simplified
 ## Files in the repository
 |File name|Purpose|Our modifications/additions|
 |:-------:|:-----:|:-------------------------:|
-|
+|create_test_csv.py|Build a csv file for the prediction and build a csv file with the labels for the accuracy calculations|original|
 refernces: https://github.com/lRomul/argus-quick-draw
