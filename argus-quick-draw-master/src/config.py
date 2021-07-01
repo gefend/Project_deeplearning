@@ -2,8 +2,8 @@ import os
 from os.path import join
 
 DATA_DIR = '/workdir/data/'
-TRAIN_SIMPLIFIED = join(DATA_DIR, 'train_simplified')
-TEST_SIMPLIFIED_PATH = join(DATA_DIR, 'test_simplified.csv')
+TRAIN_SIMPLIFIED = join(DATA_DIR, 'train_simplified_40')
+TEST_SIMPLIFIED_PATH = join(DATA_DIR, 'my_test_simplified.csv')
 BASE_SIZE_SIMPLIFIED = 256
 SAMPLE_SUBMISSION = join(DATA_DIR, 'sample_submission.csv')
 
